@@ -14,12 +14,11 @@ indicators = [
     ]
 
 @app.route("/",methods["GET"])
-def hello():
-  return "Hello World!"
+def home():
+  return "Welcome to HomePage!"
 
 @app.route("/performance", methods["GET"])
 def sendData():
-
   return jsonify(indicators)
 
 
