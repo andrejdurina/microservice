@@ -5,11 +5,11 @@ app.config["DEBUG"] = true
 indicators = [
   {'name': 'CPU',
    'usage' : 25,},
-  { 'name' : 'RAM'
-    'usage' : 50,}
-  { 'name' : 'DISK'
-    'usage' : 50,}
-  { 'name' : 'NETWORK'
+  { 'name' : 'RAM',
+    'usage' : 50,},
+  { 'name' : 'DISK',
+    'usage' : 50,},
+  { 'name' : 'NETWORK',
     'usage' : 50,}
     ]
 
