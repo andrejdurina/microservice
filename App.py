@@ -11,7 +11,8 @@ def auth_required(f):
                 auth=request.authorization
                 if auth and auth.username == 'user' and auth.password == 'pass':
                         return f(*args,**kwargs)
-                return make_response('Bad credentials',401,{'WWW-Authenticate' : 'Basic realm = "Login Required"'})
+                else:
+                        return make_response('Bad credentials',401,{'WWW-Authenticate' : 'Basic realm = "Login Required"'})
         return decorated
 
 """"Creates dictionary from.txt with key values"""
