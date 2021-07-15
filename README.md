@@ -1,5 +1,5 @@
 # microservice
-Snapshop performance indicator
+Snapshot performance indicator
 Python
 
 Docker
