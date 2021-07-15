@@ -7,17 +7,18 @@ import psutil,ast,sys
 app = Flask(__name__)
 
 def auth_required(f):
-        @wraps(f)
-        def decorated(*args,**kwargs):
-                auth=request.authorization
-                if auth and auth.username == 'user' and auth.password == 'pass':
-                        return f(*args,**kwargs)
-                return make_response('Bad credentials',401,{'WWW-Authenticate' : 'Basic realm = "Login Required"'})
-        return decorated
+    @wraps(f)
+    def decorated(*args,**kwargs):
+        auth=request.authorization
+        if auth and auth.username == 'user' and auth.password == 'pass':
+            return f(*args,**kwargs)
+        return make_response('Bad credentials',401,{'WWW-Authenticate' : 'Basic realm = "Login Required"'})
+    return decorated
 
 """"Creates dictionary from.txt with key values"""
 file = open("Dictionary.txt","r")
 contents = file.read()
+file.close()
 indicators = ast.literal_eval(contents)
 
 """Basic home routing"""
@@ -27,7 +28,7 @@ def home():
   return "Welcome to testing page, to advance append /run to url!"
 
 """Routing /run displays JSON with parameters of CPU,RAM,Disk & Network usage of current container."""
-@app.route("/run", methods=["GET","POST"])
+@app.route("/run", methods=["GET"])
 @auth_required
 def get_updated_dict():
      if not indicators:
@@ -36,7 +37,7 @@ def get_updated_dict():
         for key in indicators.keys():
             if (key == "Time"):
                     now = datetime.now()
-                    indicators[key] = now.strftime("%d-%m-%y  %H:%M :%S")
+                    indicators[key] = now.strftime("%d-%m-%y  %H:%M:%S")
             if (key == "CPU"):
                     indicators[key] = str(psutil.cpu_percent()) + ' %'
             if (key == "RAM"):
