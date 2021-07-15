@@ -45,7 +45,7 @@ def get_updated_dict():
             if (key == "Disk"):
                     indicators[key] = str(psutil.disk_usage('/').percent) + ' %'
             if (key == "Network"):
-                    indicators[key]['recieved'] = str(format(float(psutil.net_io_counters().bytes_recv)*10 ** -6, ".2f")) + ' Mb'
+                    indicators[key]['received'] = str(format(float(psutil.net_io_counters().bytes_recv)*10 ** -6, ".2f")) + ' Mb'
                     indicators[key]['sent'] = str(format(float(psutil.net_io_counters().bytes_sent)*10 ** -6, ".2f")) + ' Mb' 
         print(indicators,sys.stderr)
      return jsonify(indicators)

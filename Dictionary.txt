@@ -3,5 +3,5 @@
   'CPU' : {'usage': None},
   'RAM' : {'usage': None},
   'Disk' : {'usage': None},
-  'Network' : {'recieved': None,'sent': None},
+  'Network' : {'received': None,'sent': None},
   }
