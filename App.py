@@ -3,6 +3,7 @@ import psutil,ast,sys
 
 app = Flask(__name__)
 
+""""Creates dictionary from.txt with key values"""
 file = open("Dictionary.txt","r")
 contents = file.read()
 indicators = ast.literal_eval(contents)
@@ -12,8 +13,8 @@ indicators = ast.literal_eval(contents)
 def home():
   return "Welcome to HomePage!"
 
-"""Routing /performance displays JSON with parameters of CPU,RAM,Disk & Network usage of current machine."""
-@app.route("/run-test", methods=["GET","POST"])
+"""Routing /run displays JSON with parameters of CPU,RAM,Disk & Network usage of current container."""
+@app.route("/run", methods=["GET","POST"])
 def get_updated_dict():
      if not indicators:
         return -1
@@ -31,9 +32,5 @@ def get_updated_dict():
         print(indicators,sys.stdout)
      return jsonify(indicators)
  
-
 if __name__ == "__main__":
   app.run(debug="true")
-
-
-
