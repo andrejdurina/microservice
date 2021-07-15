@@ -1,4 +1,5 @@
-{
+{ 
+  'Time' : {'value' : None},
   'CPU' : {'usage': None},
   'RAM' : {'usage': None},
   'Disk' : {'usage': None},
