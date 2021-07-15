@@ -1,0 +1,6 @@
+{
+  'CPU' : {'usage': None},
+  'RAM' : {'usage': None},
+  'Disk' : {'usage': None},
+  'Network' : {'recieved': None,'sent': None},
+  }
